@@ -765,11 +765,11 @@ http_header_recv(struct netbuf *nb)
 			continue;
 
 		if ((value = http_validate_header(headers[i])) == NULL) {
-		    value = "<empty>"
+		    value = "<empty>";
 		}
 
 		if (*value == '\0') {
-		    value = "<empty>"
+		    value = "<empty>";
 		}
 
 		hdr = kore_pool_get(&http_header_pool);
