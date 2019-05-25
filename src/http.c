@@ -765,15 +765,11 @@ http_header_recv(struct netbuf *nb)
 			continue;
 
 		if ((value = http_validate_header(headers[i])) == NULL) {
-			req->flags |= HTTP_REQUEST_DELETE;
-			http_error_response(c, 400);
-			return (KORE_RESULT_OK);
+		    value = "<empty>"
 		}
 
 		if (*value == '\0') {
-			req->flags |= HTTP_REQUEST_DELETE;
-			http_error_response(c, 400);
-			return (KORE_RESULT_OK);
+		    value = "<empty>"
 		}
 
 		hdr = kore_pool_get(&http_header_pool);
